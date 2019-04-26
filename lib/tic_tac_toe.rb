@@ -8,8 +8,7 @@ WIN_COMBINATIONS = [
     [0,4,8],
     [2,4,6]
   ]
-  
-  #display_board: not the instance variable @board
+
   
     def display_board
     puts " #{@board[0]} | #{@board[1]} | #{@board[2]} "
@@ -18,15 +17,12 @@ WIN_COMBINATIONS = [
     puts "-----------"
     puts " #{@board[6]} | #{@board[7]} | #{@board[8]} "
   end
-  
-  # input_index
+
   
   def input_to_index(user_input)
     user_input.to_i - 1
   end
-  
-  # move: Note that we deleted the boar arguement, and added @ to board.  For instance, #move was move(board, position, char), but now board is intialized, so it is a characteristic of TicTacToe, no need to have it as an argument.  So, #move became simply move(position, char).
-  
+
   
   def move(position, char)
     @board[position] = char
@@ -73,7 +69,7 @@ def turn
     end
 end
 
-#won?
+
 def won?
   WIN_COMBINATIONS.detect do |win_combo|
     if (@board[win_combo[0]]) == "X" && (@board[win_combo[1]]) == "X" && (@board[win_combo[2]]) == "X"
@@ -85,7 +81,7 @@ def won?
   end
 end
 
-#full?
+
 def full?
   @board.all?{|occupied| occupied != " "}
 end
